@@ -29,7 +29,7 @@ public class Program {
             // Accept an incoming connection.
             Socket socket = serverSocket.accept();
 
-            System.out.println("Conexão estabelecida com o cliente: " + socket.getInetAddress().getHostAddress());
+            System.out.println("Conexão Estabelecida ---->  " + socket.getInetAddress().getHostAddress());
 
             // Create a new PrintWriter to write to the client.
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -44,30 +44,38 @@ public class Program {
         }
     }
 
-    private static void ColetarAtividades() throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("entrada.txt"));  
-        sc.useDelimiter(",");   //sets the delimiter pattern  
-        while (sc.hasNext())  //returns a boolean value  
-        {  
-            //System.out.print(sc.next());  
-            total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Finalizada(0, sc.next());
 
-        }   
-        sc.close();  //closes the scanner  
+    
+    private static void ColetarAtividades() throws FileNotFoundException {
+
+        try {
+            File arquivo = new File("entrada.txt");
+            Scanner scanner = new Scanner(arquivo);
+
+            while (scanner.hasNextLine()) {
+                String linha = scanner.nextLine();
+                String[] partes = linha.split(",");
+
+                System.out.println("Linha original: " + linha);
+
+                total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Finalizada( Integer.parseInt(partes[0]), partes[1] );
+
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado.");
+        }
+
+        
+
+//
+
     }
 
     private static void inicializar() throws FileNotFoundException {
 
         ColetarAtividades();
-        
-        //Operacao_Finalizada fim = new Operacao_Finalizada(2, "Operacao_Finalizada");
-//total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Finalizada(2, "Operacao_Finalizada");
-        
-        //Operacao_Planejamento op = new Operacao_Planejamento(0, "Operacao_Planejamento");
-        
-        //total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Planejamento(0, "Operacao_Planejamento");
-
-        
     }
 
     private static void enviarResposta(PrintWriter out) {
