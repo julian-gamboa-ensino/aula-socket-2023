@@ -1,0 +1,4 @@
+45000, Moti Vihar
+12000, Shastri Nagar
+30000, Ashok Nagar
+20000, Saket Nagar
