@@ -45,23 +45,30 @@ public class Program {
     }
 
 
+/*
+String longo = """
+     Example text""";
+ */
+
+
+
+
+
+
     
     private static void ColetarAtividades() throws FileNotFoundException {
 
         try {
-            //File arquivo = new File("entrada.txt");
-            File arquivo = new File("agosto02.txt");
+
+            File arquivo = new File("./basico/agosto02.txt");
             Scanner scanner = new Scanner(arquivo);
 
             while (scanner.hasNextLine()) {
                 String linha = scanner.nextLine();
                 String[] partes = linha.split(",");
 
-                //System.out.println("Linha original: " + linha);
-
-ColetarAtividades_arrays(Integer.parseInt(partes[0]),partes[1]);
-
-//total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Finalizada( Integer.parseInt(partes[0]), partes[1] );
+                ColetarAtividades_arrays(Integer.parseInt(partes[0]),partes[1]);
+                ColetarAtividades_arrays(Integer.parseInt(partes[0]),"versão 15");
 
             }
 
@@ -74,11 +81,11 @@ ColetarAtividades_arrays(Integer.parseInt(partes[0]),partes[1]);
 
     private static void ColetarAtividades_arrays(int indice,String informacoes) {
 
-        //            System.out.println("\" \"+indice"+" "+indice);
-if(index_total_Operacao<total_Operacao.length)
-{
-total_Operacao[index_total_Operacao++] = (Operacao) new Operacao_Finalizada(indice,informacoes );
-}
+            if(index_total_Operacao<total_Operacao.length)
+            {
+                total_Operacao[index_total_Operacao++] = 
+                (Operacao) new Operacao_Finalizada(indice,informacoes );
+            }
         
     }
 
