@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class SQLiteExample {
+public class App {
     public static void main(String[] args) {
         Connection connection = null;
         Statement statement = null;
