@@ -34,7 +34,7 @@ public class Program {
             // Create a new PrintWriter to write to the client.
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-            // Write a message to the client.
+//Responde com "dados"
             inicializar();
             enviarResposta(out);
 
@@ -56,6 +56,9 @@ String longo = """
 
 
     
+
+
+
     private static void ColetarAtividades() throws FileNotFoundException {
 
         try {
