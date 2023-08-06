@@ -65,8 +65,9 @@ String longo = """
     private static void ColetarAtividades() throws FileNotFoundException {
 
         try {
-
-            File arquivo = new File("./basico/agosto02.txt");
+        	String dbSQLITE="/home/julian/Desktop/oracao/SERPRO/APOSTILHAS/quarta/aula-socket-2023/basico/agosto02.txt";
+        	
+            File arquivo = new File(dbSQLITE);
             Scanner scanner = new Scanner(arquivo);
 
             while (scanner.hasNextLine()) {
